@@ -1,0 +1,55 @@
+def start_driving_lesson():
+    print("Welcome to your driving lesson!")
+
+    # Driving tasks and corresponding instructions
+    driving_tasks = {
+        "1": "Parallel Parking",
+        "2": "Lane Change",
+        "3": "3-point Turn",
+        "4": "U-turn",
+        "5": "Emergency Brake",
+        "6": "Stopping at Stop Signs",
+        "7": "Using Turn Signals",
+    }
+
+    # Display available tasks
+    print("Choose a task to practice:")
+    for task_num, task in driving_tasks.items():
+        print(f"{task_num}. {task}")
+
+    while True:
+        selected_task = input("Enter the task number to practice (or 'q' to quit): ")
+
+        if selected_task.lower() == "q":
+            break
+
+        if selected_task not in driving_tasks:
+            print("Invalid task number. Try again.")
+            continue
+
+        task_to_practice = driving_tasks[selected_task]
+        print(f"Let's practice {task_to_practice}!")
+
+        # Simulate the student performing the task
+        perform_task(task_to_practice)
+
+    print("Thank you for your driving lesson. Drive safe!")
+
+def perform_task(task):
+    # Simulate the student performing the task
+    print(f"Performing {task}...")
+
+    # Simulate instructor feedback
+    if task in ["Parallel Parking", "3-point Turn", "U-turn"]:
+        print("Great job! Your maneuver was smooth and accurate.")
+    elif task == "Lane Change":
+        print("You checked your mirrors and signaled properly. Good job!")
+    elif task == "Emergency Brake":
+        print("You stopped the car quickly. Well done!")
+    elif task in ["Stopping at Stop Signs", "Using Turn Signals"]:
+        print("Remember to come to a complete stop and use your signals consistently.")
+    else:
+        print("Task completed.")
+
+if __name__ == "__main__":
+    start_driving_lesson()
